@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Picker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #preview {
+            margin-top: 20px;
+        }
+
+        #preview img {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Image Picker</h2>
+
+    <!-- Dropdown -->
+    <select id="imageSelect" onchange="tampilGambar()">
+        <option value="">-- Pilih Gambar --</option>
+        <option value="burung.jpg">burung</option>
+        <option value="Harimau.jpg">harimau</option>
+        <option value="kucing.jpg">kucing</option>
+    </select>
+
+    <!-- Tempat menampilkan gambar -->
+    <div id="preview"></div>
+
+    
+    <script>
+        function tampilGambar() {
+            let fileName = document.getElementById("imageSelect").value;
+
+            if (fileName === "") {
+                document.getElementById("preview").innerHTML = "";
+                return;
+            }
+
+            // Menampilkan alert nama file
+            alert("Ini gambar " + fileName);
+
+            // Menampilkan gambar di bawah dropdown
+            document.getElementById("preview").innerHTML = 
+                "<img src='img/" + fileName + "' alt='" + fileName + "'>";
+        }
+    </script>
+
+</body>
+</html>
